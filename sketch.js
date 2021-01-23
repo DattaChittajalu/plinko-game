@@ -25,7 +25,7 @@ function setup() {
   }
 
   //FIRST ROW OF PLINKO
-  for (var j = 75; j <=width; j=j+50) 
+  for (var j = 25; j <=width; j=j+50) 
   {
        plinkos.push(new Plinko(j,75));
   }
@@ -37,12 +37,18 @@ function setup() {
   }
 
   //CREATE THIRD ROW OF PLINKO
-    
+  for (var j = 25; j <=width; j=j+50) 
+  {
+       plinkos.push(new Plinko(j,275));
+  }
 
 
     //CREATE FORTH ROW OF PLINKO
 
-    
+    for (var j = 50; j <=width; j=j+50) 
+  {
+       plinkos.push(new Plinko(j,375));
+  }
     
    
 
@@ -66,9 +72,13 @@ function draw() {
   }
 
   //for creating the particles
- 
+ if(frameCount%60===0){
+   particles.push(new Particle(random(width/230,width/2+30),10,10))
+ }
   
   //for displaying the particles
-  
+  for(var j =0; j<particles.length;j++){
+    particles[j].display();
+  }
    
 }
